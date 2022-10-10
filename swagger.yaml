@@ -8,20 +8,43 @@ servers:
   - url: https://api-us.boxever.com
   - url: https://api.boxever.com
 tags:
-  - name: Batch
-  - name: Real-Time
+  - name: Batch APIs
+  - name: Stream / Real-Time APIs
   - name: Interactive / Rest APIs
-paths:
-  /users:
-    get:
-      summary: example
+  - name: Tenant Management
+components:
+  securitySchemes:
+    oAuthCredentials:
+      type: oauth2
       description: ''
+      flows:
+        clientCredentials:
+          tokenUrl: /v2/oauth/token
+          scopes: {}
+    oAuthPassword:
+      type: oauth2
+      description: ''
+      flows:
+        password:
+          tokenUrl: /v2/oauth/token 
+          scopes: {}    
+paths:
+  /v3/flowDefinitions:
+    get:
+      tags:
+        - Tenant Management
+      summary: ''
+      description: ''
+      security:
+        - oAuthCredentials: []
+      parameters:
+        - name: expand
+          in: query
+          description: ''
+          required: false
+          schema:
+            type: boolean
+            format: boolean
       responses:
         '200':
           description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: string
