@@ -48,3 +48,13 @@ paths:
       responses:
         '200':
           description: ''
+  /v2/connections:
+    get:
+      tags: [ "Tenant Management|Connections"]
+      summary: 'Retrieve Connections'
+      description: ''
+      security:
+        - oAuthPassword: []
+      responses:
+        '200':
+          description: ''
