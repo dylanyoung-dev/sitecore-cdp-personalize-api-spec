@@ -66,6 +66,24 @@ components:
           type: string
           example: 'NONE'
 paths:
+  /v1.2/event/create.json:
+    get:
+      tags: 
+        - Stream / Real-Time APIs
+      summary: ''
+      description: ''
+      security:
+        - BasicAuth: []
+      parameters:
+        - name: 'client_key'
+          required: true
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
   /v3/templates:
     get:
       tags: ["Tenant Management|Templates"]
