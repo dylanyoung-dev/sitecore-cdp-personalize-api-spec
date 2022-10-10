@@ -31,12 +31,12 @@ components:
 paths:
   /v3/flowDefinitions:
     get:
-      tags:
-        - Tenant Management
+      tags: [ "Tenant Management|Flows" ]
       summary: ''
       description: ''
       security:
         - oAuthCredentials: []
+        - oAuthPassword: []
       parameters:
         - name: expand
           in: query
