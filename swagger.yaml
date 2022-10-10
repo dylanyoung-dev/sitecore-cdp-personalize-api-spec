@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+  title: Unofficial Sitecore CDP/Personalize API
+  description: This is the unofficial API definition for Sitecore CDP and Personalize, that I use for reference purposes in the community.
+  version: 0.0.1
+servers:
+  - url: https://api-us.boxever.com
+  - url: https://api.boxever.com
+paths:
+  /users:
+    get:
+      summary: example
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
