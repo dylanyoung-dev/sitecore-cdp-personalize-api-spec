@@ -163,7 +163,7 @@ paths:
           description: ''
   /v2/guests/{guestRef}:
     get:
-      tags: ["Interactive / Rest APIs|Templates" ]
+      tags: ["Interactive / Rest APIs|Guests" ]
       summary: ''
       description: ''
       security:
