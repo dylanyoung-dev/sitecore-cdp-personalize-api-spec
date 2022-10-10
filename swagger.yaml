@@ -1,3 +1,4 @@
+---
 openapi: 3.0.0
 info:
   title: Unofficial Sitecore CDP/Personalize API
@@ -6,6 +7,10 @@ info:
 servers:
   - url: https://api-us.boxever.com
   - url: https://api.boxever.com
+tags:
+  - name: Batch
+  - name: Real-Time
+  - name: Interactive / Rest APIs
 paths:
   /users:
     get:
