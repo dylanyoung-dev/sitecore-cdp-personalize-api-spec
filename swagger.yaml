@@ -158,6 +158,13 @@ paths:
           example: 100
           schema:
             type: number
+        - name: expand
+          in: query
+          description: ''
+          required: false
+          example: 'true'
+          schema:
+            type: boolean
       responses:
         '200':
           description: ''
