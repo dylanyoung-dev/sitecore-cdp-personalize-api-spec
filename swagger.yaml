@@ -6,12 +6,29 @@ info:
   version: 0.0.1
 servers:
   - url: https://api-us.boxever.com
+    description: 'US'
   - url: https://api.boxever.com
+    description: 'EU'
+  - url: https://api-ap-southeast-2-production.boxever.com
+    description: 'APJ'
 tags:
   - name: Batch APIs
+    description: 'APIs specifically available to Sitecore CDP.'
+    externalDocs:
+      url: 'https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/overview-of-sitecore-cdp-batch-api.html'
+      description: 'Sitecore Official Documentation'
   - name: Stream / Real-Time APIs
+    description: 'APIs available for Sitecore CDP/Personalize.'
+    externalDocs:
+      url: 'https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/overview-of-sitecore-cdp-stream-apis.html'
+      description: 'Sitecore Official Documentation'
   - name: Interactive / Rest APIs
+    description: 'APIs specifically available to Sitecore CDP.'
+    externalDocs:
+      url: 'https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-0/overview-of-sitecore-cdp-rest-apis.html'
+      description: 'Sitecore Official Documentation'
   - name: Tenant Management
+    description: 'APIs available for Sitecore CDP/Personalize depending on the feature'
 components:
   securitySchemes:
     oAuthCredentials:
@@ -72,8 +89,6 @@ paths:
         - Stream / Real-Time APIs
       summary: ''
       description: ''
-      security:
-        - BasicAuth: []
       parameters:
         - name: 'client_key'
           required: true
@@ -81,6 +96,87 @@ paths:
           description: ''
           schema:
             type: string
+      responses:
+        '200':
+          description: ''
+  /v1.2/browser/create.json:
+    get:
+      tags:
+        - Stream / Real-Time APIs
+      summary: ''
+      description: ''
+      parameters:
+        - name: 'client_key'
+          required: true
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /v2/guests:
+    get:
+      tags: [ "Interactive / Rest APIs|Guests" ]
+      summary: 'Locate Guests'
+      description: ''
+      security:
+        - BasicAuth: []
+      parameters:
+        - name: email
+          in: query
+          description: ''
+          required: false
+          example: ''
+          schema:
+            type: string
+        - name: identifiers.provider
+          in: query
+          description: ''
+          required: false
+          example: ''
+          schema:
+            type: string
+        - name: identifiers.id
+          in: query
+          description: ''
+          required: false
+          example: ''
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: 'Number of guest records to offset for pagination'
+          required: false
+          example: 300
+          schema:
+            type: number
+        - name: limit
+          in: query
+          description: 'Number of guest records to return'
+          required: false
+          example: 100
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+  /v2/guests/{guestRef}:
+    get:
+      tags: ["Interactive / Rest APIs|Templates" ]
+      summary: ''
+      description: ''
+      security:
+        - BasicAuth: []
+      parameters:
+        - name: guestRef
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+            format: guid
       responses:
         '200':
           description: ''
