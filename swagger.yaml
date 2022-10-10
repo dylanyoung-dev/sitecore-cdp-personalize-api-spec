@@ -28,7 +28,66 @@ components:
         password:
           tokenUrl: /v2/oauth/token 
           scopes: {}    
+  schemas:
+    Connection:
+      type: object
+      properties:
+        clientKey:
+          type: string
+          format: string
+          example: 'ztcr3udcjdp1nagu1162xan03rntefns'
+        href:
+          type: string
+          format: string
+          example: 'http://api-us.boxever.com/v2/connections/33dd8cb7-e32e-4766-c593-cbe400e19d7d'
+        ref:
+          type: string
+          format: uuid
+          example: '33dd8cb7-e32e-4766-c593-cbe400e19d7d'
+        name:
+          type: string
+          example: 'arbitrary connection name'
+        description:
+          type: string
+          example: 'Connection description, and what it does'
+        modifiedByRef:
+          type: string
+          format: uuid
+    InputMappings:
+      type: object
+    OutputMappings:
+      type: object
+    ConnectionReguest:
+      type: object
+    ConnectionAuth:
+      type: object
+      properties:
+        authType:
+          type: string
+          example: 'NONE'
 paths:
+  /v3/templates:
+    get:
+      tags: ["Tenant Management|Templates"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthCredentials: []
+        - oAuthPassword: []
+      parameters:
+        - name: type
+          in: query
+          description: ''
+          required: false
+          example: 'WEB'
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: ''
+        '401':
+          description: 'UNAUTHORIZED'
   /v3/flowDefinitions:
     get:
       tags: [ "Tenant Management|Flows" ]
@@ -58,3 +117,21 @@ paths:
       responses:
         '200':
           description: ''
+  /v2/connections/{connectionRef}:
+    get:
+      tags: [ "Tenant Management|Connections"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthPassword: []
+      parameters:
+        - name: connectionRef
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: ''
+    
