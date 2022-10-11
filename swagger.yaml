@@ -338,6 +338,21 @@ paths:
       responses:
         '200':
           description: ''
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
+  /v2/configurations:
+    get:
+      tags: [ "Tenant Management|Miscellaneous" ]
+      summary: 'Get Tenant Configuration'
+      description: ''
+      security:
+        - oAuthCredentials: []
+        - oAuthPassword: []
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
   /v2/connections:
     get:
       tags: [ "Tenant Management|Connections"]
@@ -348,6 +363,8 @@ paths:
       responses:
         '200':
           description: ''
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
   /v2/connections/{connectionRef}:
     get:
       tags: [ "Tenant Management|Connections"]
@@ -380,6 +397,8 @@ paths:
       responses:
         '200':
           description: ''
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
     post:
       tags: [ "Tenant Management|Batch Segmentation"]
       summary: 'Create Batch Segment Definition'
