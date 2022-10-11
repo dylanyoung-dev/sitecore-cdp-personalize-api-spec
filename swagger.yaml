@@ -214,7 +214,7 @@ paths:
           example: ''
           schema:
             type: string
-            format: guid
+            format: uuid
       responses:
         '200':
           description: ''
@@ -224,6 +224,11 @@ paths:
       description: ''
       security:
         - BasicAuth: []
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Guest'
       responses:
         '200':
           description: ''
