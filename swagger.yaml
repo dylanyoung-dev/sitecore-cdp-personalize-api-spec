@@ -300,4 +300,45 @@ paths:
       responses:
         '200':
           description: ''
-    
+  /v4/segmentDefinitions:
+    get:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      responses:
+        '200':
+          description: ''
+    put:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      responses:
+        '200':
+          description: ''
+    post:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      responses:
+        '200':
+          description: ''
+  /v4/segmentDefinitions/{segmentDefinitionRef}:
+    get:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      responses:
+        '200':
+          description: ''
