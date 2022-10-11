@@ -319,6 +319,27 @@ paths:
           description: 'Not Found'
         '500':
           description: 'Internal Server Error'
+  /v3/templates/{templateRef}:
+    get:
+      tags: ["Tenant Management|Templates"]
+      summary: 'Retrieve Template by Ref'
+      description: ''
+      security:
+        - oAuthCredentials: []
+        - oAuthPassword: []
+      parameters:
+        - name: templateRef
+          description: ''
+          in: path
+          required: true
+          example: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
   /v3/flowDefinitions:
     get:
       tags: [ "Tenant Management|Flows" ]
