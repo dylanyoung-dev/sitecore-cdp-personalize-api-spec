@@ -30,6 +30,26 @@ tags:
   - name: Tenant Management
     description: 'APIs available for Sitecore CDP/Personalize depending on the feature'
 components:
+  responses:
+    UnAuthorized:
+      description: 'UnAuthorized'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: 'UNAUTHORIZED'
+              code:
+                type: string
+                example: '401'
+              message:
+                type: string
+                example: 'Authentication credentials are required to access the resource.  All requests must be authenticated.'
+              moreInfoUrl:
+                type: string
+                example: 'Contact Sitecore support here: https://support.sitecore.com'
   securitySchemes:
     oAuthCredentials:
       type: oauth2
@@ -295,6 +315,10 @@ paths:
           description: ''
         '401':
           description: 'UNAUTHORIZED'
+        '404':
+          description: 'Not Found'
+        '500':
+          description: 'Internal Server Error'
   /v3/flowDefinitions:
     get:
       tags: [ "Tenant Management|Flows" ]
@@ -340,7 +364,11 @@ paths:
             format: uuid
       responses:
         '200':
-          description: ''
+          description: Success
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
+        '404':
+          description: Not Found
   /v4/segmentDefinitions:
     get:
       tags: [ "Tenant Management|Batch Segmentation"]
@@ -361,7 +389,13 @@ paths:
         - oAuthCredentials: []
       responses:
         '200':
-          description: ''
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchSegment'
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
   /v4/segmentDefinitions/{segmentDefinitionRef}:
     get:
       tags: [ "Tenant Management|Batch Segmentation"]
@@ -376,10 +410,16 @@ paths:
           required: true
           schema:
             type: string
-          description: ''
+          description: 'Provide a `uuid ref` (b6174250-fd87-3dda-8673-8187b2addad4) or a `FriendlyId`.'
       responses:
         '200':
-          description: ''
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchSegment'
+        '400':
+          description: 'Bad Request'
     put:
       tags: [ "Tenant Management|Batch Segmentation"]
       summary: 'Update a Batch Segment Definition'
@@ -393,7 +433,7 @@ paths:
           required: true
           schema:
             type: string
-          description: ''
+          description: 'Provide a `uuid ref` (b6174250-fd87-3dda-8673-8187b2addad4) or a `FriendlyId`.'
       responses:
         '200':
           description: ''
