@@ -82,6 +82,37 @@ components:
         authType:
           type: string
           example: 'NONE'
+    Guest:
+      type: object
+      properties:
+        href:
+          type: string
+          format: string
+          example: ''
+        ref:
+          type: string
+          format: uuid
+          example: ''
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        firstSeen:
+          type: string
+          format: date-time
+        lastSeen:
+          type: string
+          format: date-time
+        guestType:
+          type: string
+        gender:
+          type: string
+        identityStatus:
+          type: string
+        email:
+          type: string
 paths:
   /v1.2/event/create.json:
     get:
