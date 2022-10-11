@@ -199,6 +199,20 @@ paths:
       responses:
         '200':
           description: ''
+    post:
+      tags: [ "Interactive / Rest APIs|Guests"]
+      summary: ''
+      description: ''
+      security:
+        - BasicAuth: []
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Guest'
+      responses:
+        '200':
+          description: ''
   /v2/guests/{guestRef}:
     get:
       tags: ["Interactive / Rest APIs|Guests" ]
@@ -215,20 +229,6 @@ paths:
           schema:
             type: string
             format: uuid
-      responses:
-        '200':
-          description: ''
-    post:
-      tags: [ "Interactive / Rest APIs|Guests"]
-      summary: ''
-      description: ''
-      security:
-        - BasicAuth: []
-      requestBody:
-        content:
-          'application/json':
-            schema:
-              $ref: '#/components/schemas/Guest'
       responses:
         '200':
           description: ''
