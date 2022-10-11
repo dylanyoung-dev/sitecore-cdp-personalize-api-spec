@@ -218,6 +218,15 @@ paths:
       responses:
         '200':
           description: ''
+    post:
+      tags: [ "Interactive / Rest APIs|Guests"]
+      summary: ''
+      description: ''
+      security:
+        - BasicAuth: []
+      responses:
+        '200':
+          description: ''
   /v3/templates:
     get:
       tags: ["Tenant Management|Templates"]
