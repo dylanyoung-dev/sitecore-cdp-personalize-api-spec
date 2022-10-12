@@ -222,6 +222,34 @@ paths:
           example: ''
           schema:
             type: string
+        - name: firstName
+          in: query
+          description: ''
+          required: false
+          example: 'John'
+          schema:
+            type: string
+        - name: lastName
+          in: query
+          description: ''
+          required: false
+          example: 'Smith'
+          schema:
+            type: string
+        - name: identityStatus
+          in: query
+          description: ''
+          required: false
+          example: 'customer'
+          schema:
+            type: string
+        - name: phoneNumber
+          in: query
+          description: ''
+          required: false
+          example: '555-555-5555'
+          schema:
+            type: string
         - name: identifiers.provider
           in: query
           description: ''
@@ -234,6 +262,13 @@ paths:
           description: ''
           required: false
           example: ''
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: ''
+          required: false
+          example: 'lastName::ASC'
           schema:
             type: string
         - name: offset
@@ -259,7 +294,10 @@ paths:
             type: boolean
       responses:
         '200':
-          description: ''
+          description: Success
+          content:
+            application/json:
+
     post:
       tags: [ "Interactive / Rest APIs|Guests"]
       summary: ''
