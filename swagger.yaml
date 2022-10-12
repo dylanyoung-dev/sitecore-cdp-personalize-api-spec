@@ -113,6 +113,47 @@ components:
           type: string
         email:
           type: string
+    BatchSegment:
+      type: object
+      properties:
+        friendlyId:
+          type: string
+          example: 'segment_test_1'
+        status:
+          type: string
+          example: 'LIVE'
+        type:
+          type: string
+          example: 'BASIC'
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["tag1", "tag2"]
+        executions:
+          type: object
+          properties:
+            href:
+              type: string
+              example: 'https://api-us.boxever.com/v4/segmentDefinitions/b6174250-fd87-3dda-8673-8187b2addad4/executions'
+        revisions:
+          type: object
+          properties:
+            href:
+              type: string
+              example: 'https://api-us.boxever.com/v4/segmentDefinitions/b6174250-fd87-3dda-8673-8187b2addad4/revisions'
+        size:
+          type: number
+          example: 13
+        lastRunAt:
+          type: string
+          format: date-time
+          example: '2022-10-11T04:09:26.231Z'
+        lastLiveAt:
+          type: string
+          format: date-time
+          example: '2022-10-11T04:09:26.231Z'
+        
 paths:
   /v1.2/event/create.json:
     get:
@@ -338,4 +379,59 @@ paths:
       responses:
         '200':
           description: ''
-    
+  /v4/segmentDefinitions:
+    get:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: 'Retrieve all Batch Segment Definitions'
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      responses:
+        '200':
+          description: ''
+    post:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: 'Create Batch Segment Definition'
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      responses:
+        '200':
+          description: ''
+  /v4/segmentDefinitions/{segmentDefinitionRef}:
+    get:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: ''
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      parameters:
+        - name: segmentDefinitionRef
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ''
+      responses:
+        '200':
+          description: ''
+    put:
+      tags: [ "Tenant Management|Batch Segmentation"]
+      summary: 'Update a Batch Segment Definition'
+      description: ''
+      security:
+        - oAuthPassword: []
+        - oAuthCredentials: []
+      parameters:
+        - name: segmentDefinitionRef
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ''
+      responses:
+        '200':
+          description: ''
