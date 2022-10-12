@@ -2,7 +2,7 @@
 openapi: 3.0.0
 info:
   title: Unofficial Sitecore CDP/Personalize API
-  description: This is the unofficial API definition for Sitecore CDP and Personalize, that I use for reference purposes in the community.
+  description: This is the unofficial API definition for Sitecore CDP and Personalize, that I use for reference purposes in the community.  This resource should be used as a reference as you start to explore these APIs, as I've personally tested and validated each of these requests.  However these requests may grow out of date over time and is a constant work in progress.  Please refer to the official Sitecore documentation API references for up to date information.
   version: 0.0.1
 servers:
   - url: https://api-us.boxever.com
@@ -348,6 +348,67 @@ paths:
       responses:
         '200':
           description: ''
+  /v2/guests/{guestRef}/{extension}:
+    get:
+      tags: ["Interactive / Rest APIs|Guest Data Extensions"]
+      summary: 'Retrieve Guest Data Extensions'
+      description: ''
+      security:
+        - BasicAuth: []
+      parameters:
+        - name: guestRef
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+        - name: extension
+          in: path
+          description: ''
+          required: true
+          example: 'extEmailPreferences'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
+  /v2/guests/{guestRef}/{extension}/{guestDataExtensionRef}:
+    get:
+      tags: ["Interactive / Rest APIs|Guest Data Extensions"]
+      summary: ''
+      description: ''
+      security:
+        - BasicAuth: []
+      parameters:
+        - name: guestRef
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+        - name: extension
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+        - name: guestDataExtensionRef
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/UnAuthorized'
   /v3/templates:
     get:
       tags: ["Tenant Management|Templates"]
