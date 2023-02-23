@@ -32,7 +32,7 @@ tags:
 components:
   responses:
     UnAuthorized:
-      description: 'UnAuthorized'
+      description: 'Error: Unauthorized'
       content:
         application/json:
           schema:
@@ -42,8 +42,8 @@ components:
                 type: string
                 example: 'UNAUTHORIZED'
               code:
-                type: string
-                example: '401'
+                type: number
+                example: 401
               message:
                 type: string
                 example: 'Authentication credentials are required to access the resource.  All requests must be authenticated.'
@@ -561,6 +561,11 @@ paths:
       security:
         - oAuthPassword: []
         - oAuthCredentials: []
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/BatchSegment'
       responses:
         '200':
           description: Success
