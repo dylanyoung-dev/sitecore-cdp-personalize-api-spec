@@ -348,6 +348,24 @@ paths:
       responses:
         '200':
           description: ''
+    delete:
+      tags: ["Interactive / Rest APIs|Guests" ]
+      summary: 'Delete a Guest by Guest Ref'
+      description: ''
+      security:
+        - BasicAuth: []
+      parameters:
+        - name: guestRef
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: ''
   /v2/guests/{guestRef}/{extension}:
     get:
       tags: ["Interactive / Rest APIs|Guest Data Extensions"]
